@@ -3,7 +3,7 @@ import { AuthEntity } from "./auth.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import * as bcrypt from 'bcrypt';
-import * as jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';    
 
 @Injectable({})
 export class AuthService{

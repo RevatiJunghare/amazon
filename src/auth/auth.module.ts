@@ -3,7 +3,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { AuthEntity } from "./auth.entity";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
-import { WishlistEntity } from "src/order/wishlist.entity";
+import { WishlistEntity } from "src/wishlist/wishlist.entity";
 
 @Module({
     imports:[TypeOrmModule.forFeature([AuthEntity,WishlistEntity])],

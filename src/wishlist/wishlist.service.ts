@@ -43,13 +43,11 @@ export class WishlistService{
         }
 
         const order = await this.wishlistrepository.create({
-            product_name:product['product_name'],
-            image:product['image'],
-            price:product['price']
-
+            user:loggedInUser,
+            product:product
         })
 
-        return await this.wishlistrepository.save(order)
+        return  await this.wishlistrepository.save(order)
     }
 
 

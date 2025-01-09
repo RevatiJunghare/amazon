@@ -1,5 +1,6 @@
-import { WishlistEntity } from "src/order/wishlist.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { MediaEntity } from "src/media/media.entity";
+import { WishlistEntity } from "src/wishlist/wishlist.entity";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name:'amazon-products'})
 export class ProductEntity{
@@ -9,8 +10,9 @@ export class ProductEntity{
     @Column()
     product_name:string
 
-    @Column()
-    image:string
+    @ManyToOne(() => MediaEntity, { cascade: true, eager: true })
+    @JoinColumn({ name: 'image_id' })
+    image: MediaEntity;
 
     @Column()
     price:number
@@ -21,7 +23,7 @@ export class ProductEntity{
     @Column({nullable:true})
     category:string
 
-    @OneToMany(() => WishlistEntity, (order) => order.product)
-    orders: WishlistEntity[];
+    @CreateDateColumn()
+    createdAt:Date
 
 }
